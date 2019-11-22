@@ -1,0 +1,16 @@
+# Custom aliases
+alias gs="git status"
+alias gc="git commit"
+alias gd="git diff"
+alias ga="git add"
+alias gf="git fetch"
+alias gco="git checkout"
+alias stash=gstash
+alias gstash="git stash"
+alias gp="git push"
+alias pull="git pull"
+alias clone="git clone"
+alias i="npm i"
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
