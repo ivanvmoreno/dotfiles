@@ -20,3 +20,6 @@ source ~/.aliases
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# pip modules
+export PATH=$PATH:$HOME/.local/bin
