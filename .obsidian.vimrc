@@ -4,7 +4,7 @@ nmap + *
 nmap j gj
 nmap k gk
 " I like using H and L for beginning/end of line
-nmap H ^
+nmap ˆ ^
 nmap L $
 " nmap J 5j
 " nmap K 5k
