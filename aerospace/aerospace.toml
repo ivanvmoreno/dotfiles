@@ -1,9 +1,5 @@
 # Reference: https://github.com/i3/i3/blob/next/etc/config
 
-# i3 doesn't have "normalizations" feature that why we disable them here.
-# But the feature is very helpful.
-# Normalizations eliminate all sorts of weird tree configurations that don't make sense.
-# Give normalizations a chance and enable them back.
 enable-normalization-flatten-containers = true 
 enable-normalization-opposite-orientation-for-nested-containers = true 
 
@@ -26,21 +22,20 @@ alt-enter = '''exec-and-forget osascript -e '
     end tell'
     '''
 
-# i3 wraps focus by default
-alt-j = 'focus --boundaries-action wrap-around-the-workspace left'
-alt-k = 'focus --boundaries-action wrap-around-the-workspace down'
-alt-l = 'focus --boundaries-action wrap-around-the-workspace up'
-alt-semicolon = 'focus --boundaries-action wrap-around-the-workspace right'
+alt-h = 'focus --boundaries-action wrap-around-the-workspace left'
+alt-j = 'focus --boundaries-action wrap-around-the-workspace down'
+alt-k = 'focus --boundaries-action wrap-around-the-workspace up'
+alt-l = 'focus --boundaries-action wrap-around-the-workspace right'
 
 alt-shift-j = 'move left'
 alt-shift-k = 'move down'
 alt-shift-l = 'move up'
 alt-shift-semicolon = 'move right'
 
-# Consider using 'join-with' command as a 'split' replacement if you want to enable
-# normalizations
-alt-h = 'join-with left'
-alt-v = 'join-with down'
+alt-ctrl-h = 'join-with left'
+alt-ctrl-j = 'join-with down'
+alt-ctrl-k = 'join-with up'
+alt-ctrl-l = 'join-with right'
 
 alt-f = 'fullscreen'
 
