@@ -1,71 +1,49 @@
 # Reference: https://github.com/i3/i3/blob/next/etc/config
-
+start-at-login = true
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
-
 default-root-container-layout = 'tiles'
-
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
-
-after-startup-command = [
-  'exec-and-forget borders',
-]
-
-exec-on-workspace-change = [
-  '/bin/bash',
-  '-c',
-  'sketchybar --trigger aerospace_workspace_changed FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
-]
+after-startup-command = ['exec-and-forget borders']
+accordion-padding = 30
 
 [mode.main.binding]
 alt-r = 'mode resize'
-
-# See: https://nikitabobko.github.io/AeroSpace/goodies#open-a-new-window-with-applescript
 alt-enter = '''exec-and-forget osascript -e '
-    tell application "wezterm"
-        activate
-    end tell'
-    '''
-
+tell application "wezterm"
+    activate
+end tell'
+'''
 alt-h = 'focus --boundaries-action wrap-around-the-workspace left'
 alt-j = 'focus --boundaries-action wrap-around-the-workspace down'
 alt-k = 'focus --boundaries-action wrap-around-the-workspace up'
 alt-l = 'focus --boundaries-action wrap-around-the-workspace right'
-
 alt-shift-h = 'move left'
 alt-shift-j = 'move down'
 alt-shift-k = 'move up'
 alt-shift-l = 'move right'
-
 alt-ctrl-h = 'join-with left'
 alt-ctrl-j = 'join-with down'
 alt-ctrl-k = 'join-with up'
 alt-ctrl-l = 'join-with right'
-
 alt-f = 'fullscreen'
-
-alt-s = 'layout v_accordion'               # 'layout stacking' in i3
-alt-w = 'layout h_accordion'               # 'layout tabbed' in i3
+alt-s = 'layout v_accordion' # 'layout stacking' in i3
+alt-w = 'layout h_accordion' # 'layout tabbed' in i3
 alt-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
-
 alt-shift-space = 'layout floating tiling' # 'floating toggle' in i3
-
-alt-1 = 'workspace 1'  # coding / development
-alt-2 = 'workspace 2'  # browser
-alt-3 = 'workspace 3'  # communication / calendar
-alt-4 = 'workspace 4'  # beeper
+alt-1 = 'workspace 1' # coding / development
+alt-2 = 'workspace 2' # browser
+alt-3 = 'workspace 3' # communication / calendar
+alt-4 = 'workspace 4' # beeper
 alt-5 = 'workspace 5'
 alt-6 = 'workspace 6'
 alt-7 = 'workspace 7'
-alt-8 = 'workspace 8'  # music
-alt-9 = 'workspace 9'  # ai assistants
+alt-8 = 'workspace 8' # music
+alt-9 = 'workspace 9' # ai assistants
 alt-0 = 'workspace 10' # home-assistant
-
-#### Secondary monitor
 alt-ctrl-1 = 'workspace 11' # timetagger
 alt-ctrl-2 = 'workspace 12'
 alt-ctrl-3 = 'workspace 13'
-
 alt-shift-1 = 'move-node-to-workspace 1'
 alt-shift-2 = 'move-node-to-workspace 2'
 alt-shift-3 = 'move-node-to-workspace 3'
@@ -102,10 +80,7 @@ esc = 'mode main'
 11 = ['secondary', 'main']
 12 = ['secondary', 'main']
 13 = ['secondary', 'main']
-
-
 alt-shift-c = 'reload-config'
-
 
 [gaps]
 outer.top = [{ monitor.'^built-in retina display$' = 10 }, 10]
@@ -118,7 +93,7 @@ inner.vertical = 10
 # osascript -e 'id of app "<app_name>"'
 [[on-window-detected]]
 if.app-id = 'com.brave.Browser'
-run = ['layout tiling', 'move-node-to-workspace 2']
+run = ['move-node-to-workspace 2']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
@@ -149,8 +124,24 @@ if.app-id = 'com.tinyspeck.slackmacgap'
 run = ['move-node-to-workspace 3']
 
 [[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = ['move-node-to-workspace 1']
+
+[[on-window-detected]]
+if.app-id = 'com.insomnia.app'
+run = ['move-node-to-workspace 1']
+
+[[on-window-detected]]
 if.app-id = 'com.apple.iCal'
 run = ['move-node-to-workspace 3']
+
+[[on-window-detected]]
+if.app-id = 'com.brave.Browser.app.haclcbhanpahbkfifjjbbganlanaanfd' # Reactflux (Chrome PWA)
+run = ['move-node-to-workspace 2']
+
+[[on-window-detected]]
+if.app-id = 'com.brave.Browser.app.jofmikfegijlinjnhbfgmjmfphphpcef' # Home Assistant (Chrome PWA)
+run = ['move-node-to-workspace 10']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.mail'
@@ -169,5 +160,13 @@ if.app-id = 'com.brave.Browser.app.bkpkohmifefkicambcnmkfcikdpppmhi' # TimeTagge
 run = ['move-node-to-workspace 11']
 
 [[on-window-detected]]
-if.app-id = 'com.brave.Browser.app.jofmikfegijlinjnhbfgmjmfphphpcef' # Home Assistant (Chrome PWA)
-run = ['move-node-to-workspace 10']
+if.app-id = 'com.brave.Browser.app.joldddnjngacnbjpifgcpceolhcgfdkb' # Beaver (Chrome PWA)
+run = ['move-node-to-workspace 11']
+
+[[on-window-detected]]
+if.window-title-regex-substring = 'nas'
+run = ['move-node-to-workspace 5']
+
+[[on-window-detected]]
+if.window-title-regex-substring = 'tmux'
+run = ['move-node-to-workspace 5']

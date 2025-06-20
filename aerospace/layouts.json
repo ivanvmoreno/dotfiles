@@ -1,0 +1,100 @@
+{
+    "stashWorkspace": "S",
+    "layouts": {
+        "reading": {
+            "workspace": "2",
+            "layout": "h_tiles",
+            "orientation": "horizontal",
+            "windows": [
+                {
+                    "bundleId": "com.brave.Browser"
+                },
+                {
+                    "bundleId": "com.brave.Browser.app.haclcbhanpahbkfifjjbbganlanaanfd"
+                }
+            ]
+        },
+        "communication": {
+            "workspace": "3",
+            "layout": "h_tiles",
+            "orientation": "horizontal",
+            "windows": [
+                {
+                    "bundleId": "com.apple.mail"
+                },
+                {
+                    "orientation": "vertical",
+                    "windows": [
+                        {
+                            "bundleId": "com.tinyspeck.slackmacgap",
+                            "size": "1/2"
+                        },
+                        {
+                            "bundleId": "com.apple.iCal",
+                            "size": "1/2"
+                        }
+                    ]
+                }
+            ]
+        },
+        "beeper": {
+            "workspace": "4",
+            "layout": "h_tiles",
+            "orientation": "horizontal",
+            "windows": [
+                {
+                    "bundleId": "com.automattic.beeper.desktop"
+                }
+            ]
+        },
+        "music": {
+            "workspace": "8",
+            "layout": "h_tiles",
+            "orientation": "horizontal",
+            "windows": [
+                {
+                    "bundleId": "org.jeffvli.feishin"
+                }
+            ]
+        },
+        "ai": {
+            "workspace": "9",
+            "layout": "h_tiles",
+            "orientation": "horizontal",
+            "windows": [
+                {
+                    "bundleId": "com.openai.chat"
+                },
+                {
+                    "bundleId": "com.kangfenmao.CherryStudio"
+                }
+            ]
+        },
+        "home": {
+            "workspace": "10",
+            "layout": "h_tiles",
+            "orientation": "horizontal",
+            "windows": [
+                {
+                    "bundleId": "com.brave.Browser.app.jofmikfegijlinjnhbfgmjmfphphpcef"
+                }
+            ]
+        },
+        "tracking": {
+            "workspace": "11",
+            "layout": "h_tiles",
+            "orientation": "horizontal",
+            "display": "secondary",
+            "windows": [
+                {
+                    "bundleId": "com.brave.Browser.app.bkpkohmifefkicambcnmkfcikdpppmhi",
+                    "size": "3/5"
+                },
+                {
+                    "bundleId": "com.brave.Browser.app.joldddnjngacnbjpifgcpceolhcgfdkb",
+                    "size": "2/5"
+                }
+            ]
+        }
+    }
+}
