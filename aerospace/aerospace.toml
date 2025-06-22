@@ -31,8 +31,8 @@ alt-s = 'layout v_accordion' # 'layout stacking' in i3
 alt-w = 'layout h_accordion' # 'layout tabbed' in i3
 alt-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
 alt-shift-space = 'layout floating tiling' # 'floating toggle' in i3
-alt-1 = 'workspace 1' # coding / development
-alt-2 = 'workspace 2' # browser
+alt-1 = 'workspace 1' # browser
+alt-2 = 'workspace 2' # coding
 alt-3 = 'workspace 3' # communication / calendar
 alt-4 = 'workspace 4' # beeper
 alt-5 = 'workspace 5'
@@ -93,7 +93,7 @@ inner.vertical = 10
 # osascript -e 'id of app "<app_name>"'
 [[on-window-detected]]
 if.app-id = 'com.brave.Browser'
-run = ['move-node-to-workspace 2']
+run = ['move-node-to-workspace 1']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
@@ -125,11 +125,11 @@ run = ['move-node-to-workspace 3']
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
-run = ['move-node-to-workspace 1']
+run = ['move-node-to-workspace 2']
 
 [[on-window-detected]]
 if.app-id = 'com.insomnia.app'
-run = ['move-node-to-workspace 1']
+run = ['move-node-to-workspace 2']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.iCal'
@@ -137,7 +137,7 @@ run = ['move-node-to-workspace 3']
 
 [[on-window-detected]]
 if.app-id = 'com.brave.Browser.app.haclcbhanpahbkfifjjbbganlanaanfd' # Reactflux (Chrome PWA)
-run = ['move-node-to-workspace 2']
+run = ['move-node-to-workspace 1']
 
 [[on-window-detected]]
 if.app-id = 'com.brave.Browser.app.jofmikfegijlinjnhbfgmjmfphphpcef' # Home Assistant (Chrome PWA)

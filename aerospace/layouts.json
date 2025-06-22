@@ -2,7 +2,7 @@
     "stashWorkspace": "S",
     "layouts": {
         "reading": {
-            "workspace": "2",
+            "workspace": "1",
             "layout": "h_tiles",
             "orientation": "horizontal",
             "windows": [
@@ -20,17 +20,17 @@
             "orientation": "horizontal",
             "windows": [
                 {
-                    "bundleId": "com.apple.mail"
+                    "bundleId": "com.tinyspeck.slackmacgap"
                 },
                 {
                     "orientation": "vertical",
                     "windows": [
                         {
-                            "bundleId": "com.tinyspeck.slackmacgap",
+                            "bundleId": "com.apple.iCal",
                             "size": "1/2"
                         },
                         {
-                            "bundleId": "com.apple.iCal",
+                            "bundleId": "com.apple.mail",
                             "size": "1/2"
                         }
                     ]
