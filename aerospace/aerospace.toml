@@ -7,17 +7,49 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 after-startup-command = ['exec-and-forget borders']
 accordion-padding = 30
 
+exec-on-workspace-change = [
+  '/bin/bash',
+  '-c',
+  'sketchybar --trigger aerospace_workspace_changed FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
+
+on-focus-changed = [
+  'move-mouse window-lazy-center',
+  'exec-and-forget /bin/bash -c /opt/homebrew/bin/sketchybar --trigger front_app_switched',
+  'exec-and-forget sketchybar --trigger update_windows'
+]
+
+[gaps]
+outer.top = [{ monitor.'^built-in retina display$' = 30 }, 60]
+outer.bottom = [{ monitor.'^built-in retina display$' = 10 }, 10]
+outer.left = 10
+outer.right = 10
+inner.horizontal = 10
+inner.vertical = 10
+
 [mode.main.binding]
 alt-r = 'mode resize'
+alt-shift-period = 'mode floating'
+alt-shift-semicolon = 'mode service'
 alt-enter = '''exec-and-forget osascript -e '
 tell application "wezterm"
     activate
 end tell'
 '''
-alt-h = 'focus --boundaries-action wrap-around-the-workspace left'
-alt-j = 'focus --boundaries-action wrap-around-the-workspace down'
-alt-k = 'focus --boundaries-action wrap-around-the-workspace up'
-alt-l = 'focus --boundaries-action wrap-around-the-workspace right'
+# Open new finder window
+alt-home = '''exec-and-forget osascript -e '
+tell application "finder"
+    if not (exists Finder window 1) then
+        make new Finder window
+    end if
+    set target of Finder window 1 to home
+    activate
+end tell'
+'''
+alt-h = 'exec-and-forget aerospace focus --boundaries-action wrap-around-the-workspace left || /Users/ivan/.config/aerospace/scripts/focus-window.sh left'
+alt-j = 'exec-and-forget aerospace focus --boundaries-action wrap-around-the-workspace down || /Users/ivan/.config/aerospace/scripts/focus-window.sh down'
+alt-k = 'exec-and-forget aerospace focus --boundaries-action wrap-around-the-workspace up || /Users/ivan/.config/aerospace/scripts/focus-window.sh up'
+alt-l = 'exec-and-forget aerospace focus --boundaries-action wrap-around-the-workspace right || /Users/ivan/.config/aerospace/scripts/focus-window.sh right'
 alt-shift-h = 'move left'
 alt-shift-j = 'move down'
 alt-shift-k = 'move up'
@@ -31,13 +63,13 @@ alt-s = 'layout v_accordion' # 'layout stacking' in i3
 alt-w = 'layout h_accordion' # 'layout tabbed' in i3
 alt-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
 alt-shift-space = 'layout floating tiling' # 'floating toggle' in i3
-alt-1 = 'workspace 1' # browser
-alt-2 = 'workspace 2' # coding
+alt-1 = 'workspace 1' # development
+alt-2 = 'workspace 2' # browser
 alt-3 = 'workspace 3' # communication / calendar
 alt-4 = 'workspace 4' # beeper
-alt-5 = 'workspace 5'
-alt-6 = 'workspace 6'
-alt-7 = 'workspace 7'
+alt-5 = 'workspace 5' # vikunja
+alt-6 = 'workspace 6' # config / selfhost
+alt-7 = 'workspace 7' # terminal
 alt-8 = 'workspace 8' # music
 alt-9 = 'workspace 9' # ai assistants
 alt-0 = 'workspace 10' # home-assistant
@@ -57,6 +89,11 @@ alt-shift-0 = 'move-node-to-workspace 10'
 alt-ctrl-shift-1 = 'move-node-to-workspace 11'
 alt-ctrl-shift-2 = 'move-node-to-workspace 12'
 alt-ctrl-shift-3 = 'move-node-to-workspace 13'
+shift-h = 'workspace prev'
+shift-l = 'workspace next'
+ctrl-shift-h = 'move-node-to-workspace prev'
+ctrl-shift-l = 'move-node-to-workspace next'
+alt-c = 'exec-and-forget /Users/ivan/.config/aerospace/scripts/floating-centered.sh' 
 
 [mode.resize.binding]
 h = 'resize width -50'
@@ -65,6 +102,32 @@ k = 'resize height -50'
 l = 'resize width +50'
 enter = 'mode main'
 esc = 'mode main'
+
+[mode.floating.binding]
+alt-c = [
+  'exec-and-forget /Users/ivan/.config/aerospace/scripts/floating-centered.sh',
+  'mode main'
+]
+alt-shift-semicolon = 'mode service'
+esc = 'mode main'
+h = 'exec-and-forget /Users/ivan/.config/aerospace/scripts/move-floating.sh -32 0'
+j = 'exec-and-forget /Users/ivan/.config/aerospace/scripts/move-floating.sh 0 32'
+k = 'exec-and-forget /Users/ivan/.config/aerospace/scripts/move-floating.sh 0 -32'
+l = 'exec-and-forget /Users/ivan/.config/aerospace/scripts/move-floating.sh 32 0'
+shift-h = 'exec-and-forget /Users/ivan/.config/aerospace/scripts/resize-floating-centered.sh -128 0'
+shift-j = 'exec-and-forget /Users/ivan/.config/aerospace/scripts/resize-floating-centered.sh 0 -128'
+shift-k = 'exec-and-forget /Users/ivan/.config/aerospace/scripts/resize-floating-centered.sh 0 128'
+shift-l = 'exec-and-forget /Users/ivan/.config/aerospace/scripts/resize-floating-centered.sh 128 0'
+
+[mode.service.binding]
+enter = 'reload-config'
+esc = 'mode main'
+alt-shift-period = 'mode floating'
+r = ['layout tiling', 'move up', 'mode main']
+alt-shift-h = ['join-with left', 'mode main']
+alt-shift-j = ['join-with down', 'mode main']
+alt-shift-k = ['join-with up', 'mode main']
+alt-shift-l = ['join-with right', 'mode main']
 
 [workspace-to-monitor-force-assignment]
 1 = 'main'
@@ -80,15 +143,6 @@ esc = 'mode main'
 11 = ['secondary', 'main']
 12 = ['secondary', 'main']
 13 = ['secondary', 'main']
-alt-shift-c = 'reload-config'
-
-[gaps]
-outer.top = [{ monitor.'^built-in retina display$' = 10 }, 10]
-outer.bottom = [{ monitor.'^built-in retina display$' = 10 }, 10]
-outer.left = 10
-outer.right = 10
-inner.horizontal = 10
-inner.vertical = 10
 
 # osascript -e 'id of app "<app_name>"'
 [[on-window-detected]]
@@ -165,8 +219,20 @@ run = ['move-node-to-workspace 11']
 
 [[on-window-detected]]
 if.window-title-regex-substring = 'nas'
+run = ['move-node-to-workspace 6']
+
+[[on-window-detected]]
+if.window-title-regex-substring = 'selfhost'
+run = ['move-node-to-workspace 6']
+
+[[on-window-detected]]
+if.window-title-regex-substring = '.config'
+run = ['move-node-to-workspace 6']
+
+[[on-window-detected]]
+if.app-id = 'com.brave.Browser.app.ppbijedchfccpkokmbgcdhkbmcnoagof'
 run = ['move-node-to-workspace 5']
 
 [[on-window-detected]]
-if.window-title-regex-substring = 'tmux'
-run = ['move-node-to-workspace 5']
+if.app-id = 'com.github.wez.wezterm'
+run = ['move-node-to-workspace 7']

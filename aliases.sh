@@ -1,5 +1,5 @@
-alias help='cat ~/.config/aliases.zsh'
-alias aliases='vim ~/.config/aliases.zsh'
+alias help='cat ~/.config/aliases.sh'
+alias aliases='vim ~/.config/aliases.sh'
 
 # General
 alias lsproc='ps aux | grep -v grep | grep -i'
@@ -7,7 +7,7 @@ alias lsport='lsof -i -P -n | grep LISTEN | grep -i'
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias mise='sh ~/.config/aerospace/mise-en-place.sh'
-alias reload='exec zsh'
+alias reload='exec $(ps -p $$ -o command=) -l'
 
 # Git
 alias gs='git status'
@@ -32,3 +32,6 @@ alias ,,,='cd ../..'
 # Other
 alias serve='python3 -m http.server'
 alias whoami='curl -s http://ipinfo.io/ip'
+
+# Environment variables
+export XDG_CONFIG_HOME="$HOME/.config"
