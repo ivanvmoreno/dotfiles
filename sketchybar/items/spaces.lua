@@ -16,7 +16,7 @@ local currentWorkspaceWatcher = sbar.add("item", {
 local spaceConfigs <const> = {
   ["1"] = { icon = "", name = "Development" },
 	["2"] = { icon = "󰖟", name = "Browser" },
-	["3"] = { icon = "", name = "Communication" },
+	["3"] = { icon = "󰇮", name = "Email" },
 	["4"] = { icon = "󰭹", name = "Beeper" },
   ["5"] = { icon = "", name = "Productivity" },
   ["6"] = { icon = "", name = "Configuration" },
@@ -25,6 +25,7 @@ local spaceConfigs <const> = {
 	["9"] = { icon = "", name = "AI" },
 	["10"] = { icon = "󰟐", name = "Home Assistant" },
 	["11"] = { icon = "", name = "Tracking" },
+	["12"] = { icon = "", name = "Work Comms" }
 }
 
 local function selectCurrentWorkspace(focusedWorkspaceName)

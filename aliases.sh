@@ -33,5 +33,3 @@ alias ,,,='cd ../..'
 alias serve='python3 -m http.server'
 alias whoami='curl -s http://ipinfo.io/ip'
 
-# Environment variables
-export XDG_CONFIG_HOME="$HOME/.config"

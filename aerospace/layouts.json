@@ -14,26 +14,18 @@
                 }
             ]
         },
-        "communication": {
+        "email": {
             "workspace": "3",
             "layout": "h_tiles",
             "orientation": "horizontal",
             "windows": [
                 {
-                    "bundleId": "com.tinyspeck.slackmacgap"
+                    "bundleId": "com.apple.mail",
+                    "size": "1/2"
                 },
                 {
-                    "orientation": "vertical",
-                    "windows": [
-                        {
-                            "bundleId": "com.apple.iCal",
-                            "size": "1/2"
-                        },
-                        {
-                            "bundleId": "com.apple.mail",
-                            "size": "1/2"
-                        }
-                    ]
+                    "bundleId": "com.apple.iCal",
+                    "size": "1/2"
                 }
             ]
         },
@@ -92,6 +84,22 @@
                 },
                 {
                     "bundleId": "com.brave.Browser.app.joldddnjngacnbjpifgcpceolhcgfdkb",
+                    "size": "2/5"
+                }
+            ]
+        },
+        "work-comms": {
+            "workspace": "12",
+            "layout": "h_tiles",
+            "orientation": "horizontal",
+            "display": "secondary",
+            "windows": [
+                {
+                    "bundleId": "com.tinyspeck.slackmacgap",
+                    "size": "3/5"
+                },
+                {
+                    "bundleId": "com.flexibits.fantastical2.mac",
                     "size": "2/5"
                 }
             ]
