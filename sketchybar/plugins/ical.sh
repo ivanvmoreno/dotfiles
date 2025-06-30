@@ -12,7 +12,7 @@ update() {
         IFS="${SEP}" read -ra event <<< "$(echo "${EVENTS}" | head -n1)"
         args+=(--set $NAME label="${event[1]}")
     else
-        args+=(--set $NAME label="")
+        args+=(--set $NAME label="No events")
     fi
 
     while read -r line; do
