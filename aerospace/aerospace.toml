@@ -46,24 +46,24 @@ tell application "finder"
     activate
 end tell'
 '''
-alt-h = 'exec-and-forget aerospace focus --boundaries-action wrap-around-the-workspace left || /Users/ivan/.config/aerospace/scripts/focus-window.sh left'
-alt-j = 'exec-and-forget aerospace focus --boundaries-action wrap-around-the-workspace down || /Users/ivan/.config/aerospace/scripts/focus-window.sh down'
-alt-k = 'exec-and-forget aerospace focus --boundaries-action wrap-around-the-workspace up || /Users/ivan/.config/aerospace/scripts/focus-window.sh up'
-alt-l = 'exec-and-forget aerospace focus --boundaries-action wrap-around-the-workspace right || /Users/ivan/.config/aerospace/scripts/focus-window.sh right'
-alt-shift-h = 'move left'
-alt-shift-j = 'move down'
-alt-shift-k = 'move up'
-alt-shift-l = 'move right'
-alt-ctrl-h = 'join-with left'
-alt-ctrl-j = 'join-with down'
-alt-ctrl-k = 'join-with up'
-alt-ctrl-l = 'join-with right'
+alt-n = 'exec-and-forget aerospace focus --boundaries-action wrap-around-the-workspace left || /Users/ivan/.config/aerospace/scripts/focus-window.sh left'
+alt-e = 'exec-and-forget aerospace focus --boundaries-action wrap-around-the-workspace down || /Users/ivan/.config/aerospace/scripts/focus-window.sh down'
+alt-i = 'exec-and-forget aerospace focus --boundaries-action wrap-around-the-workspace up || /Users/ivan/.config/aerospace/scripts/focus-window.sh up'
+alt-o = 'exec-and-forget aerospace focus --boundaries-action wrap-around-the-workspace right || /Users/ivan/.config/aerospace/scripts/focus-window.sh right'
+alt-shift-n = 'move left'
+alt-shift-e = 'move down'
+alt-shift-i = 'move up'
+alt-shift-o = 'move right'
+alt-ctrl-n = 'join-with left'
+alt-ctrl-e = 'join-with down'
+alt-ctrl-i = 'join-with up'
+alt-ctrl-o = 'join-with right'
 alt-f = 'fullscreen'
 alt-s = 'layout v_accordion' # 'layout stacking' in i3
 alt-w = 'layout h_accordion' # 'layout tabbed' in i3
-alt-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
+alt-t = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
 alt-shift-space = 'layout floating tiling' # 'floating toggle' in i3
-alt-1 = 'workspace 1' # development
+alt-1 = 'workspace 1' # emacs
 alt-2 = 'workspace 2' # browser
 alt-3 = 'workspace 3' # communication / calendar
 alt-4 = 'workspace 4' # beeper
@@ -110,24 +110,24 @@ alt-c = [
 ]
 alt-shift-semicolon = 'mode service'
 esc = 'mode main'
-h = 'exec-and-forget /Users/ivan/.config/aerospace/scripts/move-floating.sh -32 0'
-j = 'exec-and-forget /Users/ivan/.config/aerospace/scripts/move-floating.sh 0 32'
-k = 'exec-and-forget /Users/ivan/.config/aerospace/scripts/move-floating.sh 0 -32'
-l = 'exec-and-forget /Users/ivan/.config/aerospace/scripts/move-floating.sh 32 0'
-shift-h = 'exec-and-forget /Users/ivan/.config/aerospace/scripts/resize-floating-centered.sh -128 0'
-shift-j = 'exec-and-forget /Users/ivan/.config/aerospace/scripts/resize-floating-centered.sh 0 -128'
-shift-k = 'exec-and-forget /Users/ivan/.config/aerospace/scripts/resize-floating-centered.sh 0 128'
-shift-l = 'exec-and-forget /Users/ivan/.config/aerospace/scripts/resize-floating-centered.sh 128 0'
+n = 'exec-and-forget /Users/ivan/.config/aerospace/scripts/move-floating.sh -32 0'
+e = 'exec-and-forget /Users/ivan/.config/aerospace/scripts/move-floating.sh 0 32'
+i = 'exec-and-forget /Users/ivan/.config/aerospace/scripts/move-floating.sh 0 -32'
+o = 'exec-and-forget /Users/ivan/.config/aerospace/scripts/move-floating.sh 32 0'
+shift-n = 'exec-and-forget /Users/ivan/.config/aerospace/scripts/resize-floating-centered.sh -128 0'
+shift-e = 'exec-and-forget /Users/ivan/.config/aerospace/scripts/resize-floating-centered.sh 0 -128'
+shift-i = 'exec-and-forget /Users/ivan/.config/aerospace/scripts/resize-floating-centered.sh 0 128'
+shift-o = 'exec-and-forget /Users/ivan/.config/aerospace/scripts/resize-floating-centered.sh 128 0'
 
 [mode.service.binding]
 enter = 'reload-config'
 esc = 'mode main'
 alt-shift-period = 'mode floating'
 r = ['layout tiling', 'move up', 'mode main']
-alt-shift-h = ['join-with left', 'mode main']
-alt-shift-j = ['join-with down', 'mode main']
-alt-shift-k = ['join-with up', 'mode main']
-alt-shift-l = ['join-with right', 'mode main']
+alt-shift-n = ['join-with left', 'mode main']
+alt-shift-e = ['join-with down', 'mode main']
+alt-shift-i = ['join-with up', 'mode main']
+alt-shift-o = ['join-with right', 'mode main']
 
 [workspace-to-monitor-force-assignment]
 1 = 'main'
@@ -147,7 +147,7 @@ alt-shift-l = ['join-with right', 'mode main']
 # osascript -e 'id of app "<app_name>"'
 [[on-window-detected]]
 if.app-id = 'com.brave.Browser'
-run = ['move-node-to-workspace 1']
+run = ['move-node-to-workspace 2']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
@@ -171,7 +171,7 @@ run = ['move-node-to-workspace 8']
 
 [[on-window-detected]]
 if.app-id = 'com.automattic.beeper.desktop'
-run = ['move-node-to-workspace 4']
+run = ['move-node-to-workspace 6']
 
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
@@ -179,11 +179,7 @@ run = ['move-node-to-workspace 12']
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
-run = ['move-node-to-workspace 2']
-
-[[on-window-detected]]
-if.app-id = 'com.insomnia.app'
-run = ['move-node-to-workspace 2']
+run = ['move-node-to-workspace 4']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.iCal'
@@ -192,10 +188,6 @@ run = ['move-node-to-workspace 3']
 [[on-window-detected]]
 if.app-id = 'com.flexibits.fantastical2.mac'
 run = ['move-node-to-workspace 12']
-
-[[on-window-detected]]
-if.app-id = 'com.brave.Browser.app.haclcbhanpahbkfifjjbbganlanaanfd' # Reactflux (Chrome PWA)
-run = ['move-node-to-workspace 1']
 
 [[on-window-detected]]
 if.app-id = 'com.brave.Browser.app.jofmikfegijlinjnhbfgmjmfphphpcef' # Home Assistant (Chrome PWA)
@@ -222,21 +214,5 @@ if.app-id = 'com.brave.Browser.app.joldddnjngacnbjpifgcpceolhcgfdkb' # Beaver (C
 run = ['move-node-to-workspace 11']
 
 [[on-window-detected]]
-if.window-title-regex-substring = 'nas'
-run = ['move-node-to-workspace 6']
-
-[[on-window-detected]]
-if.window-title-regex-substring = 'selfhost'
-run = ['move-node-to-workspace 6']
-
-[[on-window-detected]]
-if.window-title-regex-substring = '.config'
-run = ['move-node-to-workspace 6']
-
-[[on-window-detected]]
-if.app-id = 'com.brave.Browser.app.ppbijedchfccpkokmbgcdhkbmcnoagof'
-run = ['move-node-to-workspace 5']
-
-[[on-window-detected]]
-if.app-id = 'com.github.wez.wezterm'
-run = ['move-node-to-workspace 7']
+if.app-id = 'org.gnu.Emacs'
+run = ['move-node-to-workspace 1']

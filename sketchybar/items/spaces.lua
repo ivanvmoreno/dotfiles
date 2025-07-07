@@ -14,18 +14,18 @@ local currentWorkspaceWatcher = sbar.add("item", {
 })
 
 local spaceConfigs <const> = {
-  ["1"] = { icon = "", name = "Development" },
-	["2"] = { icon = "󰖟", name = "Browser" },
-	["3"] = { icon = "󰇮", name = "Email" },
-	["4"] = { icon = "󰭹", name = "Beeper" },
-  ["5"] = { icon = "", name = "Productivity" },
-  ["6"] = { icon = "", name = "Configuration" },
-  ["7"] = { icon = "", name = "Terminal" },
-	["8"] = { icon = "", name = "Music" },
-	["9"] = { icon = "", name = "AI" },
-	["10"] = { icon = "󰟐", name = "Home Assistant" },
-	["11"] = { icon = "", name = "Tracking" },
-	["12"] = { icon = "", name = "Work Comms" }
+  ["1"] = { icon = "", name = "Emacs [1]" },
+	["2"] = { icon = "󰖟", name = "Browser [2]" },
+  ["3"] = { icon = "", name = "Communication [3]" },
+	["4"] = { icon = "󰼒", name = "Empty [4]" },
+	["5"] = { icon = "󰼓", name = "Empty [5]" },
+  ["6"] = { icon = "󰭹", name = "Chat [6]" },
+  ["7"] = { icon = "󰌋", name = "Passwords [7]" },
+	["8"] = { icon = "", name = "Music [8]" },
+	["9"] = { icon = "", name = "Assistants [9]" },
+	["10"] = { icon = "󰟐", name = "Home Assistant [0]" },
+	["11"] = { icon = "", name = "Tracking [11]" },
+	["12"] = { icon = "", name = "Work Comms [12]" }
 }
 
 local function selectCurrentWorkspace(focusedWorkspaceName)
